@@ -1,6 +1,7 @@
 package com.company.ThreadExecutor.MultipleTaskAndProcessAllResults;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -28,8 +29,10 @@ public class Main {
       e.printStackTrace();
     }
 
+    System.out.printf("Main: Going to shutdown at: %s\n", new Date());
     // Terminate Executor, otherwise Java programme wont stop
     executorService.shutdown();
+    System.out.printf("Main: shutdown at: %s\n", new Date());
 
     // Write the results to the console
     for (int i = 0; i < (resultList != null ? resultList.size() : 0); i = i + 1) {
