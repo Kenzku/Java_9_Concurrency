@@ -1,6 +1,7 @@
 package com.company.ParallelAndReactiveStreams.CreateStreamsFromDifferentSources;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Created by Huang, Fuguo (aka ken) on 02/02/2018.
@@ -75,5 +76,16 @@ public class Person implements Comparable<Person> {
     } else {
       return this.getFirstName().compareTo(otherPerson.getFirstName());
     }
+  }
+
+  @Override
+  public boolean equals(Object object) {
+    return getClass() == object.getClass() && this.compareTo((Person) object) == 0;
+  }
+
+  @Override
+  public int hashCode() {
+    /*in Java equal object must produce the same hash code*/
+    return	Objects.hash(firstName, lastName);
   }
 }
